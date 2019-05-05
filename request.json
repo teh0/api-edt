@@ -1,0 +1,77 @@
+{
+    "mmi": [
+        {
+            "group": "mmi1promo",
+            "ressource": "3204"
+        },
+        {
+            "group": "mmi1td1",
+            "ressource": "3205"
+        },
+        {
+            "group": "mmi1td2",
+            "ressource": "3206"
+        },
+        {
+            "group": "mmi1tp11",
+            "ressource": "3207"
+        },
+        {
+            "group": "mmi1tp12",
+            "ressource": "3208"
+        },
+        {
+            "group": "mmi1tp21",
+            "ressource": "3209"
+        },
+        {
+            "group": "mmi1tp22",
+            "ressource": "3211"
+        },
+        {
+            "group": "mmi2promo",
+            "ressource": "3214"
+        },
+        {
+            "group": "mmi2td1",
+            "ressource": "3215"
+        },
+        {
+            "group": "mmi2td2",
+            "ressource": "3217"
+        },
+        {
+            "group": "mmi2tp11",
+            "ressource": "3221"
+        },
+        {
+            "group": "mmi2tp12",
+            "ressource": "3222"
+        },
+        {
+            "group": "mmi2tp21",
+            "ressource": "3225"
+        },
+        {
+            "group": "mmi2tp22",
+            "ressource": "3226"
+        },
+        {
+            "group": "s4com",
+            "ressource": "8893"
+        },
+        {
+            "group": "s4graph",
+            "ressource": "8899"
+        },
+        {
+            "group": "s4av",
+            "ressource": "8892"
+        },
+        {
+            "group": "s4info",
+            "ressource": "8898"
+        }
+    ]
+
+}

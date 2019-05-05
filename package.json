@@ -1,0 +1,22 @@
+{
+  "name": "cron",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^0.18.0",
+    "childprocess": "^2.0.2",
+    "deep-diff": "^1.0.2",
+    "express": "^4.16.4",
+    "ical2json": "^1.2.0",
+    "ics-to-json": "^1.0.0",
+    "icstojson": "https://github.com/cspilker/icstojson/tarball/master",
+    "mysql": "^2.16.0",
+    "node-ical": "^0.9.2"
+  }
+}
