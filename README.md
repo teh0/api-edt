@@ -15,7 +15,7 @@ Une documentation plus technique arrivera très prochainement mais je tenais qua
   Le seul moyen de pouvoir les récupérer était de télécharger un fichier ICS **manuellement** en précisant la période souhaitée ainsi que la formation. On pouvait donc cibler la formation en modifiant un paramètre de l'URL de téléchargement du fichier ICS.
   Voici à quoi ressemble l'url de téléchargement :
   ```
-  http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?  resources=3204&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14
+  http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14
   ```
   Avec une requête ajax sur cette url, je pouvait donc récupérer dans une variable les données d'emploi du temps !
   
