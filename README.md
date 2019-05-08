@@ -17,7 +17,8 @@ Une documentation plus technique arrivera très prochainement mais je tenais qua
   ```
   http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14
   ```
-  Avec une requête ajax sur cette url, je pouvait donc récupérer dans une variable les données d'emploi du temps !
+  Le paramètre intéressant est ```ressource```. Il correspond à un groupe d'utilisateur précis (TP 1 de la promo des MMI2 par exemple).
+  C'est donc ce paramètre que l'on va pouvoir dynamsier pour récupérer les bonnes données d'emploi du temps, avec une requête Ajax par exemple.
   
 - **Comment exploiter les données d'un fichier ICS ?**
 
@@ -68,10 +69,18 @@ Pour le moment, le paramètre iut ne prends qu'une seule valeur (**mmi**) car no
 | s4av        |
 | s4info      |
   
-Il faut savoir que sur ADE, chaque groupe est associé à une id unique permettant ainsi de proposer au client l'affichage des bonnes horaires. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque group l'ID associée
+Rappelez vous tout au début du paramètre ```ressource``` de l'url de téléchargement du fichier ICS. 
+Chaque groupe est associé à une id unique permettant à ADE de télécharher le bon fichier ICS. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque group l'ID associée
 ```
 {
   "group": "mmi1promo",
   "ressource": "3204"
 },
 ```
+
+Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de faire des conditions sur les paramètres envoyé à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
+
+** Un scénario pour mieux comprendre **
+
+Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` au serveur js. 
+Celui-ci se charge de récupérer l'ID associée aux paramètres et modifie la requête ADE.
