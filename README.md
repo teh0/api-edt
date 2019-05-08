@@ -41,7 +41,7 @@ Si l'application a besoin de retourner les horaires de tous les étudiants qui s
 
 ```https://api-edt/edt?group=mmi1tp12&iut=mmi```
   
-Pour le moment, le paramètre iut ne prends qu'une seule valeur (mmi) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre group lui en revanche possèdes plusieurs valuers possible :
+Pour le moment, le paramètre iut ne prends qu'une seule valeur (**mmi**) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre group lui en revanche possèdes plusieurs valuers possible :
 
 | Valeurs du paramètre **group** |
 | :---        |
@@ -64,3 +64,10 @@ Pour le moment, le paramètre iut ne prends qu'une seule valeur (mmi) car nous v
 | s4av        |
 | s4info      |
   
+Il faut savoie que sur ADE, chaque group est associé à une id unique permettant ainsi de proposer au client l'affichage des bonnes horaires. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque group l'ID associée
+```
+{
+  "group": "mmi1promo",
+  "ressource": "3204"
+},
+```
