@@ -83,4 +83,4 @@ Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de 
 **Un scénario pour mieux comprendre**
 
 Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` au serveur js. 
-Celui-ci se charge de récupérer l'ID associée aux paramètres et modifie la requête ADE.
+Celui-ci se charge de récupérer l'ID associée aux paramètres et modifie la requête ADE. Ensuite, le module ```node-ical``` se charge de récupérer l'URL modifié et renvoie au client les données au format JSON.
