@@ -43,8 +43,8 @@ Si l'application a besoin de retourner les horaires de tous les étudiants qui s
   
 Pour le moment, le paramètre iut ne prends q'une seule valeur (mmi) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre group lui en revanche possèdes plusieurs valuers possible :
 
-Valeurs du paramètre group|
-mmi1promo |
+| Valeurs du paramètre group |
+| mmi1promo |
 mmi1td1 |
 mmi1td2 |
 mmi1tp11 |
