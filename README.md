@@ -6,16 +6,16 @@ Mon rôle dans ce projet à été de construire **une API REST** permettant au f
 Pour cela, j'ai utilisé **NodeJS**
 
 ## Problématiques du projet
-**Une documentation plus technique arrivera très prochainement mais je tenais quand même à vous expliquer comment cela fonctionne dans les grandes lignes**.
+Une documentation plus technique arrivera très prochainement mais je tenais quand même à vous expliquer comment cela fonctionne dans les grandes lignes.
 
-- Comment récupérer les données d'un serveur existant ?
+- **Comment récupérer les données d'un serveur existant ?**
 
   J'ai beaucoup réfléchie à cette problématique car c'était le problème majeur de l'API. Les données d'emploi du temps sont stockées sur le serveur [ADE](https://ade6-usmb-ro.grenet.fr/direct/index.jsp?data=bd72d825015315fe400a2e8897636a690412158042ec7880df46b7c8db8028847a856464e9e1a5bac86f839c03d7c55aedc5434d4a4b357ad7a78c3eabf336a2d756ba483954b0e3edf59b9627563685) qui est un service d'emploi du temps pour les universités.
   
   Le seul moyen de pouvoir les récupérer était de télécharger un fichier ICS **manuellement** en précisant la période souhaitée ainsi que la formation. On pouvait donc cibler la formation en modifiant un paramètre de l'URL de téléchargement du fichier ICS.
   Avec une requête ajax sur cette url, je pouvait donc récupérer dans une variable les données d'emploi du temps !
   
-- Comment exploiter les données d'un fichier ICS ?
+- **Comment exploiter les données d'un fichier ICS ?**
 
   Lorsque l'on récupère les données d'un fichier ```.ics```, elles sont converties en ```string```. Ce type de variable n'est pas très pratique pour le traitement de données en Javascript.
   Le seul moyen de l'exploiter était de convertir le contenu en **format JSON**. 
@@ -29,10 +29,38 @@ Pour cela, j'ai utilisé **NodeJS**
   ```
   Ce qui est pratique avec cette librairie, c'est qu'il n'est plus nécessaire de récupérer les données une première fois en Ajax avant de pouvoir les traiter. Avec le paramètre ```url```, la librairie se charge directement de faire la récupération des données puis de les convertir en format JSON.
   
-- Comment dynamiser les url ?
+- **Comment dynamiser les url ?**
 
   Pour cela, [Express]() m'a été très utile. Grâce à ce module, on peut facilement gérer les requêtes et les réponses HTTP.
   En fonction des paramètres de la requête, on peut facilement, renvoyer une réponse dynamique.
   
-  ## Détails techniques du projets ##
+## Détails techniques du projets ##
+
+Chaque étudiant de l'IUT sont caractérisés par un type d'IUT (MMI, GACO, PEC ...) et un groupe (TP1, TD2 ...).
+Si l'application a besoin de retourner les horaires de tous les étudiants qui sont en en MMI1 et qui sont dans le tp12, alors elle enverra à l'API la requête suivante : 
+
+```https://api-edt/edt?group=mmi1tp12&iut=mmi```
+  
+Pour le moment, le paramètre iut ne prends q'une seule valeur (mmi) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre group lui en revanche possèdes plusieurs valuers possible :
+
+Valeurs du paramètre group|
+mmi1promo |
+mmi1td1 |
+mmi1td2 |
+mmi1tp11 |
+mmi1tp12 |
+mmi1tp21 |
+mmi1tp22 |
+mmi2promo |
+mmi2td1 |
+mmi2td2 |
+mmi2tp11 |
+mmi2tp12 |
+mmi2tp21 |
+mmi2tp22 |
+s4com |
+s4graph |
+s4av |
+s4info |
+
   
