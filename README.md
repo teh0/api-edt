@@ -80,7 +80,7 @@ Chaque groupe est associé à une id unique permettant à ADE de télécharher l
 
 Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de faire des conditions sur les paramètres envoyé à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
 
-** Un scénario pour mieux comprendre **
+**Un scénario pour mieux comprendre**
 
 Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` au serveur js. 
 Celui-ci se charge de récupérer l'ID associée aux paramètres et modifie la requête ADE.
