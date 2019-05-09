@@ -41,7 +41,7 @@ Pour cela, j'ai utilisé **NodeJS**
   
 ## Détails techniques du projets ##
 
-Chaque étudiant de l'IUT est caractérisé par un type d'IUT (MMI, GACO, PEC ...) et un groupe (TP1, TD2 ...).
+Chaque étudiant de l'IUT est caractérisé par un type de DUT (MMI, GACO, PEC ...) et un groupe (TP1, TD2 ...).
 Si l'application a besoin de retourner les horaires d'un étudiant qui est en MMI1 dans le tp12, alors elle enverra à l'API la requête suivante : 
 
 ```
