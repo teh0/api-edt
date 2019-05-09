@@ -85,8 +85,13 @@ Chaque groupe est associé à une id unique permettant à ADE de télécharger l
 Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de faire des conditions sur les paramètres envoyés à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
 
 **Un scénario pour mieux comprendre**
-* *Pour simplifier la compréhension du problème, je remplacerai* * ```http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14```
-* *par* * ```http://ade.fr/resources=xxx```
+* *Pour simplifier la compréhension du problème, je remplacerai* * ```http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14```* *par* * ```http://ade.fr/resources=xxx```.
 
-Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` au serveur js. 
-Celui-ci se charge de récupérer l'ID associée aux paramètres et modifie la requête ADE. Ensuite, le module ```node-ical``` se charge de récupérer l'URL modifié et renvoie au client les données au format JSON.
+Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API js. 
+
+Elle va donc récupérer le paramètre ```group``` et va l'associé à la bonne ID de la ressource (grâce au fameux fichier ```request.json```) en la stockant dans une variable ```js let ressource```.
+
+Ensuite, on dynamise l'url de la requête comme ceci : 
+```js const url = `http://ade.fr/resources=${ressource}`; ```
+
+Ensuite, le module ```node-ical``` se charge de récupérer l'URL modifié et renvoie au client les données au format JSON.
