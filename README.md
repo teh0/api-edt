@@ -92,7 +92,7 @@ http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resour
 par
 ```
 http://ade.fr/resources=xxx
-```.
+```
 
 Supposons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API js. 
 
@@ -119,10 +119,20 @@ Avant de pouvoir tester le projet, il faut vous assurer que [NodeJS](https://nod
 - Clonez ou téléchargez le projet 
 - Ouvrez une ligne et ciblez le repertoire dans lequel ce trouve votre projet
 - Lancez le serveur avec la ligne de commande 
-```console
+```bash
 node server.js
 ```
 
 Votre serveur est maintenant lancé. L'adresse du serveur node est la suivante : ```http://localhost:1337```
 Vous pouvez d'ailleurs tester si cela fonctionne en tapant sur votre navigateur ```http://localhost:1337/edt?group=s4info&iut=mmi```
 
+Parfois, il arrive que votre navigateur renvoie un message d'erreur quand vous effectuez une requête Ajax sur l'adresse du serveur js
+```
+XMLHttpRequest cannot load https://www.googleapis.com/moderator/v1/series?key=[key]
+&data%5Bdescription%5D=Share+and+rank+tips+for+eating+healthily+on+the+cheaps!
+&data%5Bname%5D=Eating+Healthy+%26+Cheap
+&data%5BvideoSubmissionAllowed%5D=false. 
+Origin [my_domain] is not allowed by Access-Control-Allow-Origin.
+```
+
+Dans ce cas las, il suffit simplement de remplacer **http://localhost:1337** par **[votre adresse IP]:1337
