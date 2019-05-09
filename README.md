@@ -44,9 +44,11 @@ Pour cela, j'ai utilisé **NodeJS**
 Chaque étudiant de l'IUT est caractérisé par un type d'IUT (MMI, GACO, PEC ...) et un groupe (TP1, TD2 ...).
 Si l'application a besoin de retourner les horaires d'un étudiant qui est en MMI1 dans le tp12, alors elle enverra à l'API la requête suivante : 
 
-```https://api-edt/edt?group=mmi1tp12&iut=mmi```
-On remarque que la requête comprends 2 paramètres : ```iut``` et ```group```
-Pour le moment, le paramètre ```iut``` ne prends qu'une seule valeur (**mmi**) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre ```group``` lui en revanche possède plusieurs valeurs possibles :
+```
+https://api-edt/edt?group=mmi1tp12&iut=mmi
+```
+On remarque que la requête comprend 2 paramètres : ```iut``` et ```group```
+Pour le moment, le paramètre ```iut``` ne prend qu'une seule valeur (**mmi**) car nous voulons dans un premier temps rendre fonctionnel notre application sur une seule formation. Le paramètre ```group``` lui en revanche possède plusieurs valeurs possibles :
 
 | Valeurs du paramètre ```**group**``` |
 | :---        |
@@ -70,7 +72,7 @@ Pour le moment, le paramètre ```iut``` ne prends qu'une seule valeur (**mmi**) 
 | s4info      |
   
 Rappelez vous tout au début du paramètre ```ressource``` de l'url de téléchargement du fichier ICS. 
-Chaque groupe est associé à une id unique permettant à ADE de télécharger le bon fichier ICS. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque group l'ID associée.
+Chaque groupe est associé à une ID unique permettant à ADE de télécharger le bon fichier ICS. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque groupe l'ID associée.
 ```json
 {
   "group": "mmi1promo",
@@ -82,7 +84,7 @@ Chaque groupe est associé à une id unique permettant à ADE de télécharger l
 ...
 ```
 
-Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de faire des conditions sur les paramètres envoyés à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
+Maintenant que nous avons les groupes associés aux ID, il nous suffit de faire des conditions sur les paramètres envoyés à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
 
 **Un scénario pour mieux comprendre**
 * *Pour simplifier la syntaxe, je remplacerai 
@@ -94,15 +96,15 @@ par
 http://ade.fr/resources=xxx
 ```
 
-Supposons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API js. 
+Supposons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer sur "afficher mon emploi du temps", l'application envoie la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API. 
 
-Elle va donc récupérer le paramètre ```group``` et va l'associé à la bonne ID de la ressource (grâce au fameux fichier ```request.json```) en la stockant dans une variable ``` ressource```.
+Elle va donc récupérer le paramètre ```group``` et va l'associer à la bonne ID de la ressource (grâce au fameux fichier ```request.json```) en la stockant dans une variable ``` ressource```.
 
 Ensuite, on dynamise l'url de la requête comme ceci : 
 ```js 
 const url = `http://ade.fr/resources=${ressource}`; 
 ```
-Enfin, on n'a plus qu'a passer la variable ```url``` au module node-ical. Ce dernier se chargera de convertir les données au format JSON et de les renvoyer au Front.
+Enfin, on n'a plus qu'à passer la variable ```url``` au module node-ical. Ce dernier se chargera de convertir les données au format JSON et de les renvoyer au Front.
 ```js 
 ical.fromURL(url, {}, function(err, data) {
   /*JSON data*/
@@ -117,9 +119,9 @@ Avant de pouvoir tester le projet, il faut vous assurer que [NodeJS](https://nod
 **Pour tester le projet, il vous suffit de suivre les étapes suivantes**
 
 - Clonez ou téléchargez le projet 
-- Ouvrez une ligne et ciblez le repertoire dans lequel ce trouve votre projet
+- Ouvrez une ligne de commande et ciblez le repertoire dans lequel ce trouve votre projet
 - Lancez le serveur avec la ligne de commande 
-```bash
+```console
 node server.js
 ```
 
