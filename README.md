@@ -85,9 +85,16 @@ Chaque groupe est associé à une id unique permettant à ADE de télécharger l
 Maintenant que nous avons les groupes associés aux ID, il nous suffit juste de faire des conditions sur les paramètres envoyés à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
 
 **Un scénario pour mieux comprendre**
-* *Pour simplifier la compréhension du problème, je remplacerai* * ```http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14```* *par* * ```http://ade.fr/resources=xxx```.
+* *Pour simplifier la syntaxe, je remplacerai 
+```
+http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14
+```
+par
+```
+http://ade.fr/resources=xxx
+```.
 
-Imaginons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API js. 
+Supposons que je sois un étudiant de première année en MMI, dans le TP 1.2. Au moment où je vais cliquer "afficher mon emploi du temps", l'application envoi la requête ```https://api-edt/edt?group=mmi1tp12&iut=mmi``` à l'API js. 
 
 Elle va donc récupérer le paramètre ```group``` et va l'associé à la bonne ID de la ressource (grâce au fameux fichier ```request.json```) en la stockant dans une variable ``` ressource```.
 
@@ -101,3 +108,21 @@ ical.fromURL(url, {}, function(err, data) {
   /*JSON data*/
 });
 ```
+
+Avant de les renvoyer au Front, j'effectue quand même quelques traitements sur les données JSON pour rajouter une propriété couleur afin d'associer une matière à une couleur par exemple. 
+
+**Test et utilisation**
+Avant de pouvoir tester le projet, il faut vous assurer que [NodeJS](https://nodejs.org/en/) soit bien installé sur votre machine.
+
+**Pour tester le projet, il vous suffit de suivre les étapes suivantes**
+
+- Clonez ou téléchargez le projet 
+- Ouvrez une ligne et ciblez le repertoire dans lequel ce trouve votre projet
+- Lancez le serveur avec la ligne de commande 
+```console
+node server.js
+```
+
+Votre serveur est maintenant lancé. L'adresse du serveur node est la suivante : ```http://localhost:1337```
+Vous pouvez d'ailleurs tester si cela fonctionne en tapant sur votre navigateur ```http://localhost:1337/edt?group=s4info&iut=mmi```
+
