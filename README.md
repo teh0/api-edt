@@ -6,7 +6,7 @@ Mon rôle dans ce projet à été de construire **une API REST** permettant au f
 Pour cela, j'ai utilisé **NodeJS**
 
 ## Problématiques du projet
-* *Une documentation plus technique arrivera très prochainement mais je tenais quand même à vous expliquer comment cela fonctionne dans les grandes lignes.* *
+* *Une documentation plus technique arrivera très prochainement mais je tenais quand même à vous expliquer comment cela fonctionne dans les grandes lignes* *.
 
 - **Comment récupérer les données d'un serveur existant ?**
 
@@ -71,7 +71,7 @@ Pour le moment, le paramètre ```iut``` ne prend qu'une seule valeur (**mmi**) c
 | s4av        |
 | s4info      |
   
-Rappelez vous tout au début du paramètre ```ressource``` de l'url de téléchargement du fichier ICS. 
+Rappelez vous **tout au début du paramètre** ```ressource``` de l'url de téléchargement du fichier ICS. 
 Chaque groupe est associé à une ID unique permettant à ADE de télécharger le bon fichier ICS. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque groupe l'ID associée.
 ```json
 {
@@ -87,7 +87,8 @@ Chaque groupe est associé à une ID unique permettant à ADE de télécharger l
 Maintenant que nous avons les groupes associés aux ID, il nous suffit de faire des conditions sur les paramètres envoyés à l'API et en fonction, on ira faire une requête Ajax sur l'url ADE correspondante : 
 
 **Un scénario pour mieux comprendre**
-* *Pour simplifier la syntaxe, je remplacerai 
+
+Pour simplifier la syntaxe, je remplacerai 
 ```
 http://ade6-usmb-ro.grenet.fr/jsp/custom/modules/plannings/direct_cal.jsp?resources=3211,3209,3208,3207,3206,3205,3204,2150&projectId=5&calType=ical&login=iCalExport&password=73rosav&lastDate=2030-08-14
 ```
@@ -114,6 +115,7 @@ ical.fromURL(url, {}, function(err, data) {
 Avant de les renvoyer au Front, j'effectue quand même quelques traitements sur les données JSON pour rajouter une propriété couleur afin d'associer une matière à une couleur par exemple. 
 
 **Test et utilisation**
+
 Avant de pouvoir tester le projet, il faut vous assurer que [NodeJS](https://nodejs.org/en/) soit bien installé sur votre machine.
 
 **Pour tester le projet, il vous suffit de suivre les étapes suivantes**
