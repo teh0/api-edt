@@ -135,4 +135,4 @@ XMLHttpRequest cannot load https://www.googleapis.com/moderator/v1/series?key=[k
 Origin [my_domain] is not allowed by Access-Control-Allow-Origin.
 ```
 
-Dans ce cas las, il suffit simplement de remplacer **http://localhost:1337** par **[votre adresse IP]:1337
+Dans ce cas las, il suffit simplement de remplacer **http://localhost:1337** par **[votre adresse IP]:1337**
