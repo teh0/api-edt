@@ -126,13 +126,10 @@ node server.js
 Votre serveur est maintenant lancé. L'adresse du serveur node est la suivante : ```http://localhost:1337```
 Vous pouvez d'ailleurs tester si cela fonctionne en tapant sur votre navigateur ```http://localhost:1337/edt?group=s4info&iut=mmi```
 
-Parfois, il arrive que votre navigateur renvoie un message d'erreur quand vous effectuez une requête Ajax sur l'adresse du serveur js
+**Parfois**, il arrive que votre navigateur renvoie un message d'erreur quand vous effectuez une requête Ajax sur l'adresse du serveur js
 ```
-XMLHttpRequest cannot load https://www.googleapis.com/moderator/v1/series?key=[key]
-&data%5Bdescription%5D=Share+and+rank+tips+for+eating+healthily+on+the+cheaps!
-&data%5Bname%5D=Eating+Healthy+%26+Cheap
-&data%5BvideoSubmissionAllowed%5D=false. 
+XMLHttpRequest cannot load http://localhost:1337
 Origin [my_domain] is not allowed by Access-Control-Allow-Origin.
 ```
 
-`<addr>`Dans ce cas las, il suffit simplement de remplacer **http://localhost:1337** par **[votre adresse IP]:1337**
+Dans ce cas las, il suffit simplement de remplacer **http://localhost:1337** par **[votre adresse IP]:1337**
