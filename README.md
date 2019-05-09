@@ -25,7 +25,7 @@ Une documentation plus technique arrivera très prochainement mais je tenais qua
   Lorsque l'on récupère les données d'un fichier ```.ics```, elles sont converties en ```string```. Ce type de variable n'est pas très pratique pour le traitement de données en Javascript.
   Le seul moyen de l'exploiter était de convertir le contenu en **format JSON**. 
   Sur NPM, une librairie qui s'appelle [node-ical]() est capable de convertir des données ics en JSON. Il suffit de l'importer dans son fichier javascript et on peut facilement traiter les données. 
-  ```
+  ```js
   const ical = require('node-ical');
   
   ical.fromURL(url, {}, function(err, data) {
@@ -71,7 +71,7 @@ Pour le moment, le paramètre iut ne prends qu'une seule valeur (**mmi**) car no
   
 Rappelez vous tout au début du paramètre ```ressource``` de l'url de téléchargement du fichier ICS. 
 Chaque groupe est associé à une id unique permettant à ADE de télécharher le bon fichier ICS. C'est pourquoi j'ai créé un fichier ```request.json``` qui associe à chaque group l'ID associée
-```
+```json
 {
   "group": "mmi1promo",
   "ressource": "3204"
